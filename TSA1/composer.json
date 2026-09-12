@@ -1,0 +1,28 @@
+{
+  "name": "student/codeigniter-pos-foundations",
+  "description": "Four-page CodeIgniter 4 POS foundations project",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": "^8.1",
+    "codeigniter4/framework": "^4.6"
+  },
+  "require-dev": {
+    "codeigniter4/devkit": "^1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "CodeIgniter\\ComposerScripts::postUpdate"
+    ],
+    "test": "phpunit"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  }
+}
