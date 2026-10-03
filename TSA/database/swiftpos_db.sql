@@ -29,7 +29,7 @@ CREATE TABLE `customers` (
   `phone` varchar(20) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'Angela Cruz','angela.cruz@example.com','0917 123 4501','2026-09-19 22:36:05'),(2,'Marco Reyes','marco.reyes@example.com','0918 234 5602','2026-09-19 22:36:05'),(3,'Bianca Santos','bianca.santos@example.com','0919 345 6703','2026-09-19 22:36:05'),(4,'Paolo Garcia','paolo.garcia@example.com','0920 456 7804','2026-09-19 22:36:05'),(5,'Sofia Mendoza','sofia.mendoza@example.com','0921 567 8905','2026-09-19 22:36:05');
+INSERT INTO `customers` VALUES (1,'Angela Cruz','angela.cruz@example.com','0917 123 4501','2026-09-19 22:36:05'),(2,'Marco Reyes','marco.reyes@example.com','0918 234 5602','2026-09-19 22:36:05'),(3,'Bianca Santos','bianca.santos@example.com','0919 345 6703','2026-09-19 22:36:05'),(4,'Paolo Garcia','paolo.garcia@example.com','0920 456 7804','2026-09-19 22:36:05'),(5,'Sofia Mendoza','sofia.mendoza@example.com','0921 567 8905','2026-09-19 22:36:05'),(6,'Miguel Santos','miguel.santos@example.com','0912 345 6789','2026-10-02 23:36:39');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,10 +53,11 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `full_name` varchar(100) NOT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +66,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin.jolo','Jolo Miguel Ambrad','2026-09-19 22:36:05'),(2,'cashier.ana','Ana Dela Cruz','2026-09-19 22:36:05'),(3,'cashier.ben','Ben Torres','2026-09-19 22:36:05'),(4,'inventory.cara','Cara Lim','2026-09-19 22:36:05'),(5,'manager.dino','Dino Ramos','2026-09-19 22:36:05');
+INSERT INTO `users` VALUES (1,'admin.jolo','Jolo Miguel Ambrad','1790984728_97e6513db02d920f6bae.jpg','2026-09-19 22:36:05'),(2,'cashier.ana','Ana Dela Cruz',NULL,'2026-09-19 22:36:05'),(3,'cashier.ben','Ben Torres',NULL,'2026-09-19 22:36:05'),(4,'inventory.cara','Cara Lim',NULL,'2026-09-19 22:36:05'),(5,'manager.dino','Dino Ramos',NULL,'2026-09-19 22:36:05'),(6,'test','test user',NULL,'2026-10-02 23:44:53');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -78,4 +79,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-19 22:44:00
+-- Dump completed on 2026-10-03  8:05:26
