@@ -2,7 +2,19 @@
 
 <?= $this->section('content') ?>
 
-<h1>Add New User</h1>
+<h1>Staff Login</h1>
+
+<?php if (session()->has('success')): ?>
+    <div class="success-message login-message">
+        <?= esc(session('success')) ?>
+    </div>
+<?php endif ?>
+
+<?php if (session()->has('login_error')): ?>
+    <div class="alert">
+        <?= esc(session('login_error')) ?>
+    </div>
+<?php endif ?>
 
 <?php if (session()->has('errors')): ?>
     <div class="alert">
@@ -14,7 +26,7 @@
     </div>
 <?php endif ?>
 
-<form action="<?= site_url('users') ?>" method="post">
+<form action="<?= site_url('login') ?>" method="post">
     <?= csrf_field() ?>
 
     <div>
@@ -25,16 +37,7 @@
             name="username"
             value="<?= old('username') ?>"
             autocomplete="username"
-        >
-    </div>
-
-    <div>
-        <label for="full_name">Full Name</label>
-        <input
-            type="text"
-            id="full_name"
-            name="full_name"
-            value="<?= old('full_name') ?>"
+            autofocus
         >
     </div>
 
@@ -44,13 +47,12 @@
             type="password"
             id="password"
             name="password"
-            autocomplete="new-password"
+            autocomplete="current-password"
         >
-        <p>Password must contain at least 8 characters.</p>
     </div>
 
-    <button type="submit">Save User</button>
-    <a href="<?= site_url('users') ?>">Cancel</a>
+    <button type="submit">Log In</button>
+    <a href="<?= site_url('/') ?>">Back to Home</a>
 </form>
 
 <?= $this->endSection() ?>

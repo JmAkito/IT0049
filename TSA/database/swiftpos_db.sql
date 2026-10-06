@@ -52,12 +52,13 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL DEFAULT '',
   `full_name` varchar(100) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +67,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin.jolo','Jolo Miguel Ambrad','1790984728_97e6513db02d920f6bae.jpg','2026-09-19 22:36:05'),(2,'cashier.ana','Ana Dela Cruz',NULL,'2026-09-19 22:36:05'),(3,'cashier.ben','Ben Torres',NULL,'2026-09-19 22:36:05'),(4,'inventory.cara','Cara Lim',NULL,'2026-09-19 22:36:05'),(5,'manager.dino','Dino Ramos',NULL,'2026-09-19 22:36:05'),(6,'test','test user',NULL,'2026-10-02 23:44:53');
+INSERT INTO `users` VALUES (1,'admin.jolo','$2y$10$edjPWDESMbmUQpbknH.Ake9qoBEKPTxE6ccyZKRnL26m1uNlmH9.C','Jolo Miguel Ambrad','1790984728_97e6513db02d920f6bae.jpg','2026-09-19 22:36:05'),(2,'cashier.ana','$2y$10$edjPWDESMbmUQpbknH.Ake9qoBEKPTxE6ccyZKRnL26m1uNlmH9.C','Ana Dela Cruz',NULL,'2026-09-19 22:36:05'),(3,'cashier.ben','$2y$10$edjPWDESMbmUQpbknH.Ake9qoBEKPTxE6ccyZKRnL26m1uNlmH9.C','Ben Torres',NULL,'2026-09-19 22:36:05'),(4,'inventory.cara','$2y$10$edjPWDESMbmUQpbknH.Ake9qoBEKPTxE6ccyZKRnL26m1uNlmH9.C','Cara Lim',NULL,'2026-09-19 22:36:05'),(5,'manager.dino','$2y$10$edjPWDESMbmUQpbknH.Ake9qoBEKPTxE6ccyZKRnL26m1uNlmH9.C','Dino Ramos',NULL,'2026-09-19 22:36:05'),(6,'test','$2y$10$edjPWDESMbmUQpbknH.Ake9qoBEKPTxE6ccyZKRnL26m1uNlmH9.C','test user',NULL,'2026-10-02 23:44:53'),(7,'test1','$2y$10$5wBQ1laMHWwGzbI5qJWs2extpZNe4OuXx7GPYGR4LjoDphjSvHIiO','test user 1',NULL,'2026-10-06 15:08:29');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -79,4 +80,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-10-03  8:05:26
+-- Dump completed on 2026-10-06 23:33:24

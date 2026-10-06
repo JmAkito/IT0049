@@ -29,8 +29,18 @@ class Users extends BaseController
     public function create()
     {
         $rules = [
-            'username'  => 'required|max_length[50]|is_unique[users.username]',
-            'full_name' => 'required|max_length[100]'
+            'username' => [
+                'label' => 'Username',
+                'rules' => 'required|max_length[50]|is_unique[users.username]'
+            ],
+            'full_name' => [
+                'label' => 'Full Name',
+                'rules' => 'required|max_length[100]'
+            ],
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required|min_length[8]|max_length[255]'
+            ]
         ];
 
         if (! $this->validate($rules)) {
@@ -44,6 +54,10 @@ class Users extends BaseController
         $model->insert([
             'username'   => trim($this->request->getPost('username')),
             'full_name'  => trim($this->request->getPost('full_name')),
+            'password'   => password_hash(
+                $this->request->getPost('password'),
+                PASSWORD_DEFAULT
+            ),
             'created_at' => date('Y-m-d H:i:s')
         ]);
 

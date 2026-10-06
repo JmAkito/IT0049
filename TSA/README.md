@@ -1,38 +1,48 @@
-# SwiftPOS CodeIgniter 4 Application
+# SwiftPOS CodeIgniter POS Foundations
 
-SwiftPOS is a simple Point-of-Sale account management application developed using CodeIgniter 4 and MySQL.
+SwiftPOS is a student POS account-management project created using CodeIgniter 4 and MySQL.
 
-This project demonstrates database models, forms, validation, record creation, record editing, file upload, image preparation, and avatar display.
+## Current Features
 
-## Features
+- Customer account listing
+- User or staff account listing
+- Create and edit customer records
+- Create and edit staff records
+- Form validation
+- Profile picture uploads
+- MySQL database integration
+- Password hashing
+- Staff login and logout
+- Session-based authentication
+- Protected customer and user pages
 
-- Display customer accounts from MySQL
-- Add new customer accounts
-- Validate customer full name and email
-- Edit existing customer accounts
-- Display user and staff accounts from MySQL
-- Add new user accounts
-- Validate required and unique usernames
-- Edit existing user accounts
-- Upload JPG and PNG profile pictures
-- Reject profile pictures larger than 2 MB
-- Prepare uploaded avatars as 300 by 300 pixel images
-- Display a placeholder image when no avatar is available
+## Authentication
 
-## Requirements
+Only logged-in staff members can access the Customer Accounts and User Accounts pages.
 
-- PHP 8.1 or newer
-- Composer
-- MySQL or MariaDB
-- CodeIgniter 4
-- PHP extensions: intl, mysqli, mbstring, and gd
-- XAMPP can be used for Apache, PHP, and MySQL
+Demo login:
 
-## Installation
+- Username: admin.jolo
+- Password: SwiftPOS123
 
-Clone or download the project and open Command Prompt inside the project folder.
+Passwords are stored in the database as secure password hashes and are checked using `password_verify()`.
 
-Install the required packages:
+## Protected Pages
 
-```cmd
-composer install
+The following pages require authentication:
+
+- `/customers`
+- `/customers/new`
+- `/customers/{id}/edit`
+- `/users`
+- `/users/new`
+- `/users/{id}/edit`
+
+Visitors who are not logged in are redirected to the login page.
+
+## Database
+
+Database name:
+
+```text
+swiftpos_db
