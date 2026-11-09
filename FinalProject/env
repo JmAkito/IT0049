@@ -1,0 +1,12 @@
+CI_ENVIRONMENT = development
+
+app.baseURL = 'http://localhost:8081/'
+app.indexPage = ''
+
+database.default.DBDriver = SQLite3
+database.default.database = database.db
+database.default.DBPrefix =
+database.default.username =
+database.default.password =
+database.default.hostname =
+database.default.port =
