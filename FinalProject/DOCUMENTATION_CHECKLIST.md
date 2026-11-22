@@ -5,12 +5,12 @@
 ## Cover page
 
 - Project title: FinalProject POS
-- Member name(s): [enter names]
-- Section: [enter section]
-- Professor: [enter professor]
-- Date: [enter submission date]
-- GitHub repository: [paste URL]
-- Live deployment: [paste verified URL]
+- Member name(s): Jolo Miguel Ambrad
+- Section: IT0049 - TX33
+- Professor: Mr. Mar Eli Sagsagat
+- Date: November 23, 2026
+- GitHub repository: https://github.com/JmAkito/IT0049
+- Live deployment: Not deployed yet
 
 ## Project overview and technologies
 

@@ -6,15 +6,23 @@ use App\Models\Customer;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
+use RuntimeException;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        User::updateOrCreate(['username' => 'admin'], [
-            'full_name' => 'POS Administrator',
-            'password' => Hash::make('Admin123!'),
+        $isProduction = app()->environment('production');
+        $adminUsername = env('POS_ADMIN_USERNAME', $isProduction ? null : 'admin');
+        $adminPassword = env('POS_ADMIN_PASSWORD', $isProduction ? null : 'Admin123!');
+
+        if (! $adminUsername || ! $adminPassword) {
+            throw new RuntimeException('Set POS_ADMIN_USERNAME and POS_ADMIN_PASSWORD before seeding a production database.');
+        }
+
+        User::updateOrCreate(['username' => $adminUsername], [
+            'full_name' => env('POS_ADMIN_NAME', 'POS Administrator'),
+            'password' => $adminPassword,
         ]);
 
         foreach ([

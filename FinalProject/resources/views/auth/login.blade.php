@@ -10,6 +10,6 @@
         <label style="display:flex;align-items:center;gap:8px;margin:8px 0 15px;font-weight:500"><input type="checkbox" name="remember" value="1" style="width:auto"> Remember me</label>
         <button class="btn" type="submit">Sign in</button>
     </form>
-    <div class="footer">Demo login: <strong>admin</strong> / <strong>Admin123!</strong></div>
+    <div class="footer">Sign in with an account created by your POS administrator.</div>
 </div></section>
 @endsection

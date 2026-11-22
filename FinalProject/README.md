@@ -76,6 +76,36 @@ The sale endpoint validates the request, begins a database transaction, and cond
 6. Set writable permissions for `storage/` and `bootstrap/cache/`. Configure Laravel's public disk to persist uploads across deploys (or use the host's persistent storage).
 7. Open the public URL and verify sign-in, each CRUD page, image display, a successful sale, an insufficient-stock rejection, and sales history.
 
+### Railway classroom deployment
+
+This repository keeps the Laravel app in the `FinalProject/` subfolder. When connecting the repository to Railway, set the service root directory to `/FinalProject`.
+
+1. Attach one Railway volume to the app service at `/app/storage/app`. This keeps the SQLite database and uploaded product/staff images between restarts. The Free plan's volume is limited to 0.5 GB.
+2. Set the service start command to `sh railway/start.sh`. The script clears build-time Laravel caches, creates the SQLite database on the mounted volume, runs migrations and seed data, creates the public storage link, and starts the web server.
+3. Add these variables to the Railway service:
+
+   ```text
+   APP_NAME=FinalProject POS
+   APP_ENV=production
+   APP_DEBUG=false
+   APP_KEY=<generate with php artisan key:generate --show>
+   APP_URL=https://<your-generated-railway-domain>
+   DB_CONNECTION=sqlite
+   DB_DATABASE=/app/storage/app/pos.sqlite
+   FILESYSTEM_DISK=public
+   SESSION_DRIVER=file
+   CACHE_STORE=file
+   QUEUE_CONNECTION=sync
+   RAILPACK_PHP_EXTENSIONS=pdo_sqlite,sqlite3
+   POS_ADMIN_NAME=POS Administrator
+   POS_ADMIN_USERNAME=<choose a private username>
+   POS_ADMIN_PASSWORD=<choose a strong private password>
+   ```
+
+   Do not use the local classroom demo password for a public deployment. Production seeding requires the private `POS_ADMIN_USERNAME` and `POS_ADMIN_PASSWORD` variables.
+4. Generate a Railway domain, then update `APP_URL` with its HTTPS URL and redeploy.
+5. Test the public app and keep in mind that Railway's Free services sleep when idle and have a monthly usage allowance. A service stops when the allowance is used; don't select a paid plan unless you intend to pay.
+
 The application source is deployment-ready, but the live deployment URL must be created in the hosting account and verified there before submitting it as a working deployment link.
 
 ## Canvas submission checklist (exactly four items)
@@ -83,7 +113,7 @@ The application source is deployment-ready, but the live deployment URL must be 
 1. **GitHub Repository Link** — repository containing this Laravel source, migrations, seed data, and README.
 2. **ZIP Project Folder** — ZIP this folder without `vendor/`, `node_modules/`, `.env`, or local database data.
 3. **Working Deployment Link** — your verified public application URL.
-4. **Documentation PDF** — use `DOCUMENTATION_CHECKLIST.md` to capture required screenshots from your own system and write the short explanations/reflection. Fill in member names, section, professor, date, repository URL, and live URL; do not use mock screenshots.
+4. **Documentation PDF** — see [`docs/FinalProject_Documentation.pdf`](docs/FinalProject_Documentation.pdf) for the project overview, required feature screenshots, repository link, and reflection. The public deployment link is still outstanding.
 
 ## Project structure
 
